@@ -1,16 +1,16 @@
 
-public class SimpleSetImpl implements SimpleSet {
+public class SimpleSetImpl<T> implements SimpleSet<T> {
 
     private int quantity;
-    private int[] set;
+    private T[] set;
 
     public SimpleSetImpl() {
         quantity = 0;
-        set = new int[10];
+        set = (T[]) new Object[10];
     }
 
     @Override
-    public int find(int elem) {
+    public int find(T elem) {
         for (int i = 0; i < set.length; i++) {
             if(set[i] == elem)
                 return i;
@@ -19,9 +19,9 @@ public class SimpleSetImpl implements SimpleSet {
     }
 
     @Override
-    public void add(int elem) {
+    public void add(T elem) {
         if(quantity == set.length) {
-            int[] newSet = new int[set.length * 2];
+            T[] newSet = (T[]) new Object[set.length * 2];
             for(int i = 0; i < set.length; i++)
                 newSet[i] = set[i];
             set = newSet;
@@ -33,7 +33,7 @@ public class SimpleSetImpl implements SimpleSet {
     }
 
     @Override
-    public void delete(int elem) {
+    public void delete(T elem) {
         int index = find(elem);
         if(index == -1){
             System.out.println("Такого элемента нет");

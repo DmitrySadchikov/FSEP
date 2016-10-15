@@ -1,8 +1,8 @@
 
-public interface SimpleSet {
+public interface SimpleSet<T> {
 
-    int find(int elem);
-    void add(int elem);
-    void delete(int elem);
+    int find(T elem);
+    void add(T elem);
+    void delete(T elem);
     void showSet();
 }
