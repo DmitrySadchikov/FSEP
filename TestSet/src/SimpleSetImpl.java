@@ -12,7 +12,7 @@ public class SimpleSetImpl<T> implements SimpleSet<T> {
     @Override
     public int find(T elem) {
         for (int i = 0; i < set.length; i++) {
-            if(set[i] == elem)
+            if(set[i].equals(elem))
                 return i;
         }
         return -1;

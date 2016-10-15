@@ -2,15 +2,25 @@
 public class Main {
 
     public static void main(String[] args) {
-        SimpleSet<Integer> set = new SimpleSetImpl<>();
+        SimpleSet<Integer> integerSimpleSet = new SimpleSetImpl<>();
         for (int i = 0; i < 15; i++) {
-            set.add(i);
+            integerSimpleSet.add(i);
         }
-        System.out.println("Добавление элементов: ");
-        set.showSet();
-        System.out.println("После удаления элемента: ");
-        set.delete(10);
-        set.showSet();
+        System.out.println("Добавление элементов типа Integer: ");
+        integerSimpleSet.showSet();
+        System.out.println("Удаление элемента: ");
+        integerSimpleSet.delete(10);
+        integerSimpleSet.showSet();
+
+        SimpleSet<String> stringSimpleSet = new SimpleSetImpl<>();
+        for (int i = 0; i < 15; i++) {
+            stringSimpleSet.add("s" + i);
+        }
+        System.out.println("Добавление элементов типа String: ");
+        stringSimpleSet.showSet();
+        System.out.println("Удаление элемента: ");
+        stringSimpleSet.delete("s10");
+        stringSimpleSet.showSet();
     }
 
 }
