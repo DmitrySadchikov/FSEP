@@ -1,3 +1,5 @@
+import arrayset.SimpleSet;
+import arrayset.SimpleSetImpl;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,3 +1,4 @@
+package arrayset;
 
 public class SimpleSetImpl<T> implements SimpleSet<T> {
 
