@@ -8,6 +8,7 @@ public class Main {
         }
         System.out.println("Добавление элементов типа Integer: ");
         integerSimpleSet.showSet();
+        integerSimpleSet.add(13);
         System.out.println("Удаление элемента: ");
         integerSimpleSet.delete(10);
         integerSimpleSet.showSet();

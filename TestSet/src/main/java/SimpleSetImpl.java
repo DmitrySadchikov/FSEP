@@ -20,16 +20,23 @@ public class SimpleSetImpl<T> implements SimpleSet<T> {
 
     @Override
     public void add(T elem) {
-        if(quantity == set.length) {
-            T[] newSet = (T[]) new Object[set.length * 2];
-            for(int i = 0; i < set.length; i++)
-                newSet[i] = set[i];
-            set = newSet;
-            set[quantity] = elem;
+        if(find(elem) != -1) {
+            System.out.println("Этот элемент уже содержится во множестве");
+            return;
         }
-        else
-            set[quantity] = elem;
-        quantity ++;
+        else {
+            if(quantity == set.length) {
+                T[] newSet = (T[]) new Object[set.length * 2];
+                for(int i = 0; i < set.length; i++)
+                    newSet[i] = set[i];
+                set = newSet;
+                set[quantity] = elem;
+            }
+            else
+                set[quantity] = elem;
+            quantity ++;
+        }
+
     }
 
     @Override
