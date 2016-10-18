@@ -33,12 +33,21 @@ public class Main {
 
         SimpleTreeSet<Integer> simpleTreeSet = new SimpleTreeSetImpl<>();
         Random random = new Random();
-        for(int i = 0; i < 20; i++)
-            simpleTreeSet.add(random.nextInt(200));
+        Integer elem = 0;
+        for(int i = 0; i < 20; i++) {
+            if(i == 10) {
+                elem = random.nextInt(200);
+                simpleTreeSet.add(elem);
+            }
+            else
+                simpleTreeSet.add(random.nextInt(200));
+        }
 
         System.out.println("Обход дерева в ширину:");
         simpleTreeSet.showSet();
-
+        simpleTreeSet.delete(elem);
+        System.out.println("\n" + "После удаления элемента " + elem);
+        simpleTreeSet.showSet();
     }
 
 }
