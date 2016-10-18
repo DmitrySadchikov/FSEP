@@ -1,19 +1,10 @@
 package treeset;
 
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class SimpleTreeSetImpl<T extends Comparable<T>> implements SimpleTreeSet<T>, Comparator<T> {
-
-    /*static class Node<T extends Comparable<T>> {
-        Node<T> left;
-        Node<T> right;
-        T value;
-
-        Node(T value) {
-            this.value = value;
-        }
-
-    }*/
 
     private Node<T> root;
 
@@ -21,18 +12,9 @@ public class SimpleTreeSetImpl<T extends Comparable<T>> implements SimpleTreeSet
         this.root = null;
     }
 
-    /**
-     * Поиск элемента по значению
-     * Возвращает ссылку на узел, если элемент найден
-     * Возвращает null, если элемент не найден или множество пустое
-     * @param elem
-     * @return
-     */
-
     @Override
     public Node<T> find(T elem) {
         if(this.root == null) {
-            //System.out.println("Пустое множество.");
             return null;
         }
 
@@ -65,7 +47,7 @@ public class SimpleTreeSetImpl<T extends Comparable<T>> implements SimpleTreeSet
             while(child != null) {
                 switch (compare(elem, child.value)) {
                     case 0:
-                        System.out.println("Этот элемент уже содержится во множестве.");
+                        System.out.println("Ошибка добавления. Этот элемент уже содержится во множестве.");
                         return;
                     case -1:
                         parent = child;
@@ -92,9 +74,9 @@ public class SimpleTreeSetImpl<T extends Comparable<T>> implements SimpleTreeSet
 
 
     @Override
-    public void delete(T elem) { //удалить корень
+    public void delete(T elem) {
         if(this.root == null) {
-            System.out.println("Пустое множество. Удалять нечего.");
+            System.out.println("Ошибка удаления. Пустое множество. Удалять нечего.");
             return;
         }
 
@@ -120,7 +102,7 @@ public class SimpleTreeSetImpl<T extends Comparable<T>> implements SimpleTreeSet
 
 
         if(child == null) {
-            System.out.println("Элемента нет во множестве.");
+            System.out.println("Ошибка удаления. Элемента нет во множестве.");
             return;
         }
 
@@ -184,7 +166,7 @@ public class SimpleTreeSetImpl<T extends Comparable<T>> implements SimpleTreeSet
 
         Node<T> parentMin = child.right;
         Node<T> childMin = child.right.left;
-        while(child.left != null) {
+        while(childMin.left != null) {
             parentMin = childMin;
             childMin = childMin.left;
         }
@@ -193,12 +175,30 @@ public class SimpleTreeSetImpl<T extends Comparable<T>> implements SimpleTreeSet
         if(childMin.right != null) {
             parentMin.left = childMin.right;
         }
+        else
+            parentMin.left = null;
 
 
     }
 
     @Override
     public void showSet() {
+        if(this.root == null) {
+            System.out.println("Множество пустое.");
+            return;
+        }
+
+        Queue<Node> queue = new LinkedList<>();
+        Node<T> node = this.root;
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            Node<T> curr = queue.poll();
+            System.out.print(curr.value + " ");
+            if(curr.left != null)
+                queue.add(curr.left);
+            if(curr.right != null)
+                queue.add(curr.right);
+        }
 
     }
 

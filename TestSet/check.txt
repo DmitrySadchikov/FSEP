@@ -1,0 +1,41 @@
+// Первый случай:
+        //simpleTreeSet.add(10);
+        //simpleTreeSet.delete(10);
+
+        // Второй случай:
+        //simpleTreeSet.add(10);
+        //simpleTreeSet.add(12);
+        //simpleTreeSet.add(11);
+        //simpleTreeSet.add(13);
+        //simpleTreeSet.delete(10);
+
+        //simpleTreeSet.add(10);
+        //simpleTreeSet.add(8);
+        //simpleTreeSet.add(7);
+        //simpleTreeSet.add(9);
+        //simpleTreeSet.delete(10);
+
+        // Третий случай:
+        //simpleTreeSet.add(10);
+        //simpleTreeSet.add(5);
+        //simpleTreeSet.add(15);
+        //simpleTreeSet.add(7);
+        //simpleTreeSet.add(12);
+        //simpleTreeSet.add(3);
+        //simpleTreeSet.add(17);
+        //simpleTreeSet.delete(10);
+
+        // Четвертый случай:
+        //simpleTreeSet.add(10);
+        //simpleTreeSet.add(8);
+        //simpleTreeSet.add(12);
+        //simpleTreeSet.delete(8);
+        //simpleTreeSet.delete(12);
+
+        // Пятый случай:
+        //simpleTreeSet.add(10);
+        //simpleTreeSet.add(12);
+        //simpleTreeSet.add(15);
+        //simpleTreeSet.add(17);
+        //simpleTreeSet.add(13);
+        //simpleTreeSet.delete(12);
