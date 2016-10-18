@@ -1,8 +1,8 @@
 package treeset;
 
-public interface SimpleTreeSet<T> {
+public interface SimpleTreeSet<T extends Comparable<T>> {
 
-    SimpleTreeSet<T> find(T elem);
+    Node<T> find(T elem);
     void add(T elem);
     void delete(T elem);
     void showSet();
